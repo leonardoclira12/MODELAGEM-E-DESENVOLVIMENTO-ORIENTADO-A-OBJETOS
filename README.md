@@ -1,3 +1,14 @@
+# Modelagem e Desenvolvimento Orientado a Objetos — Turma 86 VP
+
+Repositório com as atividades da disciplina.
+
+| Atividade | Tema | Onde está |
+|---|---|---|
+| Atividade I | Modelagem OO do projeto A&L Cakes | README abaixo |
+| Atividade II | Modelagem e implementação OO da Loja ComprAqui | [`atividade-2-comprraqui/`](./atividade-2-comprraqui) |
+
+---
+
 # 🎂 Atividade I — Modelagem OO do projeto A&L Cakes
 
 > Turma 86 — VP · Modelagem e Desenvolvimento Orientado a Objetos
