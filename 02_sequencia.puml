@@ -1,0 +1,34 @@
+@startuml
+title 02 - Diagrama de Sequência | Avançar pedido
+skinparam backgroundColor white
+skinparam defaultFontName DejaVu Sans
+skinparam sequenceArrowColor #476480
+skinparam participantBackgroundColor #eaf2f8
+skinparam participantBorderColor #476480
+participant "AppLojaComprAqui" as App
+participant "GestorPedido" as Gestor
+participant "Pedido" as Pedido
+participant "NotificadorConsole" as Console
+App -> Gestor : avancar(pedido)
+activate Gestor
+Gestor -> Pedido : avancar()
+activate Pedido
+alt estado == "cancelado"
+Pedido --> Gestor : IllegalStateException
+else emEtapaFinal()
+Pedido --> Gestor : IllegalStateException
+else pedido pode avançar
+Pedido -> Pedido : posicao()
+Pedido -> Pedido : estado = ETAPAS[posicao() + 1]
+Pedido --> Gestor : retorna
+Gestor -> Pedido : getEstado()
+Pedido --> Gestor : novo estado
+Gestor -> Console : notificar(mensagem)
+activate Console
+Console --> Gestor : retorna
+deactivate Console
+end
+deactivate Pedido
+Gestor --> App : retorna
+deactivate Gestor
+@enduml
